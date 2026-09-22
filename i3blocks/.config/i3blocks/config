@@ -1,8 +1,0 @@
-[volume]
-label=VOL 
-command=amixer get Master | grep -q '\[off\]' && echo "MUTE" || amixer get Master | grep -E -o '[0-9]+%' | head -1
-interval=1
-
-[time]
-command=date '+%a %d-%m %I:%M '
-interval=1

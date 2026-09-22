@@ -1,3 +1,7 @@
+exec setxkbmap -layout us,ara -variant ,digits -option grp:alt_shift_toggle caps:escape 
+
+exec feh --bg-fill ~/wallpaper.jpg  ~/wallpaper2.jpg
+
 set $mod Mod4
 floating_modifier $mod
 tiling_drag modifier titlebar
@@ -9,11 +13,7 @@ smart_borders on
 default_border pixel 2
 default_floating_border pixel 2
 
-font pango:JetBrainsMono Nerd Font 8
-
-exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec --no-startup-id nm-applet
+font pango:ComicShannsMono Nerd Font 8
 
 set $ws1 "1"
 set $ws2 "2"
@@ -25,19 +25,13 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 
-workspace 1 output HDMI-1
-workspace 2 output HDMI-1
-
-workspace 3 output DVI-D-1
-workspace 4 output DVI-D-1
-
 bindsym $mod+Return exec kitty
+
+bindsym $mod+space exec rofi -show run 
 
 bindsym $mod+period exec amixer set Master 5%+
 bindsym $mod+comma exec amixer set Master 5%-
 bindsym $mod+m exec amixer set Master toggle
-
-bindsym $mod+space exec rofi -show run -theme gruvbox-dark
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -87,7 +81,6 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 mode "resize" {
         bindsym h resize shrink width 10 px or 10 ppt
@@ -103,5 +96,5 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-        status_command i3blocks
+        status_command i3status
 }

@@ -9,7 +9,7 @@ git_branch() {
 }
 
 # Prompt
-PS1='\[\e[92m\]\u\$\H \[\e[96;1m\]\w\[\e[0m\]\[\e[91m\]$(git_branch)\[\e[0m\] '
+PS1='\[\e[92m\]\u \H \[\e[96;1m\]\w\[\e[0m\]\[\e[91m\]$(git_branch)\[\e[0m\] \[\e[95;1m\]>>\[\e[0m\] '
 
 # Vim
 set -o vi

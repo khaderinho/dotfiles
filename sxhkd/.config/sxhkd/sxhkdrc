@@ -1,12 +1,14 @@
-# Focused window
+super + Return
+	kitty
+
+super + Space
+	rofi -show run
+
 super + p
     scrot -u '%Y-%m-%d_%H-%M-%S_window.png' -e 'mv $f ~/screenshots/'
 
-# Select region
 super + shift + p
     scrot -s '%Y-%m-%d_%H-%M-%S_region.png' -e 'mv $f ~/screenshots/'
-
-# Volume
 
 super + period
     amixer set Master 5%+
@@ -16,3 +18,59 @@ super + comma
 
 super + shift + m
     amixer set Master toggle
+
+# BSPWM
+
+super + shift + r
+    bspc wm -r && pkill -USR1 -x sxhkd
+
+super + shift + q
+	bspc node -k
+
+super + shift + c
+	bspc node -c
+
+super + m
+	bspc desktop -l next
+
+super + t
+    bspc node -t tiled
+
+super + o
+    bspc node -t floating
+
+super + f
+    bspc node -t fullscreen
+
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+
+super + shift + {h,j,k,l}
+    bspc node -s {west,south,north,east}
+
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+super + ctrl + space
+	bspc node -p cancel
+
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+super + alt + {h,j,k,l}
+  bspc node -z {left -50 0 || bspc node -z right -50 0, \
+                bottom 0 50 || bspc node -z top 0 50,\
+                top 0 -50 || bspc node -z bottom 0 -50,\
+                right 50 0 || bspc node -z left 50 0}
+
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
