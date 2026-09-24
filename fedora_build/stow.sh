@@ -11,6 +11,9 @@ fi
 
 mkdir -p "$HOME/.config"
 
+# Remove an existing bash configuration before Stow creates its symlink.
+rm -f "$HOME/.bashrc"
+
 # These packages contain files that belong directly in the home directory.
 stow --dir="$repo_dir" --target="$HOME" --stow bash vim xorg
 
