@@ -1,6 +1,6 @@
 exec setxkbmap -layout us,ara -variant ,digits -option grp:alt_shift_toggle caps:escape 
 
-exec feh --bg-fill ~/wallpaper.jpg  ~/wallpaper2.jpg
+exec feh --bg-fill ~/.config/wallpapers/wallpaper.jpg  ~/.config/wallpapers/wallpaper2.jpg
 
 set $mod Mod4
 floating_modifier $mod
@@ -10,8 +10,8 @@ focus_wrapping no
 
 smart_borders on
 
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 1
+default_floating_border pixel 1
 
 font pango:Comic Shanns Mono 8
 
@@ -25,7 +25,7 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 
 bindsym $mod+space exec rofi -show run 
 
