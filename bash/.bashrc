@@ -20,6 +20,6 @@ alias ll="ls -ll"
 alias la="ls -la"
 
 alias u="sudo dnf update && sudo dnf upgrade"
-alias q="sudo dnf search"
+alias s="sudo dnf search"
 alias i="sudo dnf install"
 alias r="sudo dnf remove"

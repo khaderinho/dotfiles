@@ -1,7 +1,7 @@
 super + Return
-	kitty
+	alacritty
 
-super + Space
+super + space
 	rofi -show run
 
 super + p
@@ -10,28 +10,28 @@ super + p
 super + shift + p
     scrot -s '%Y-%m-%d_%H-%M-%S_region.png' -e 'mv $f ~/screenshots/'
 
-super + period
+super + equal
     amixer set Master 5%+
 
-super + comma
+super + minus
     amixer set Master 5%-
 
 super + shift + m
     amixer set Master toggle
 
 # BSPWM
-
+	
 super + shift + r
     bspc wm -r && pkill -USR1 -x sxhkd
 
 super + shift + q
-	bspc node -k
+    bspc node -k
 
 super + shift + c
-	bspc node -c
+    bspc node -c
 
 super + m
-	bspc desktop -l next
+    bspc desktop -l next
 
 super + t
     bspc node -t tiled
@@ -49,28 +49,37 @@ super + shift + {h,j,k,l}
     bspc node -s {west,south,north,east}
 
 super + {grave,Tab}
-	bspc {node,desktop} -f last
+    bspc {node,desktop} -f last
 
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+    bspc {desktop -f,node -d} '^{1-9,10}'
 
 super + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
+    bspc node -p {west,south,north,east}
 
 super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
+    bspc node -o 0.{1-9}
 
 super + ctrl + space
-	bspc node -p cancel
+    bspc node -p cancel
 
 super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+    bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 super + alt + {h,j,k,l}
-  bspc node -z {left -50 0 || bspc node -z right -50 0, \
+    bspc node -z {left -50 0 || bspc node -z right -50 0, \
                 bottom 0 50 || bspc node -z top 0 50,\
                 top 0 -50 || bspc node -z bottom 0 -50,\
                 right 50 0 || bspc node -z left 50 0}
 
 super + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
+    bspc node -v {-20 0,0 20,0 -20,20 0}
+
+super + {comma,period}
+    bspc monitor -f {west,east}
+
+super + bracketleft
+    case $(bspc query -D -d focused --names) in 1|5) ;; *) bspc desktop -f prev;; esac
+
+super + bracketright
+    case $(bspc query -D -d focused --names) in 4|8) ;; *) bspc desktop -f next;; esac

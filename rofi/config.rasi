@@ -1,0 +1,4 @@
+@theme "solarized"
+window {
+    width: 20%;
+}
