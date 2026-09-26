@@ -33,6 +33,9 @@ bindsym $mod+period exec amixer set Master 5%+
 bindsym $mod+comma exec amixer set Master 5%-
 bindsym $mod+m exec amixer set Master toggle
 
+bindsym $mod+p exec scrot -u '%Y-%m-%d_%H-%M-%S_window.png' -e 'mv $f ~/screenshots/'
+bindsym $mod+shift+p exec scrot -s '%Y-%m-%d_%H-%M-%S_window.png' -e 'mv $f ~/screenshots/'
+
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
